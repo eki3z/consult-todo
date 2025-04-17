@@ -195,6 +195,7 @@ Return the location marker."
   "Function to use rgrep to search keywords in DIR."
   (let* ((todo-buf (format "*consult-todo-dir %s*" dir))
          (grep-command "grep --color=auto -nH --null -I -e ")
+         (compilation-auto-jump-to-first-error nil)
          cache-p)
     (cl-letf ((compilation-buffer-name-function
                (lambda (&rest _) (format "%s" todo-buf))))
